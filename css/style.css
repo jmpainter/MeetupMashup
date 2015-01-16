@@ -17,3 +17,29 @@ h1 {
 #group, #location, #distance, label, button {
 	font-size: 1.1rem;
 }
+#distance {
+	-webkit-appearance: menulist-button;
+	appearance: menulist-button;
+	background-color: rgb(255, 255, 255);
+	border: 1px solid rgb(204, 204, 204);
+	cursor: pointer;
+	height: 30px;
+	width: 9rem;	
+}
+#results {
+	text-align: left;
+	margin: 2rem auto;
+	width: 60%;
+	height: 25rem;
+}
+#group-list {
+	float: right;
+	margin-right: 4rem;
+}
+#map {
+	float: left;
+}
+#group-list {
+	font-size: 1.2rem;
+	line-height: 1.7rem;
+}
