@@ -1,0 +1,19 @@
+body {
+	text-align: center;
+	font-family: sans-serif;
+	color: #1c1c1c;
+}
+h1 {
+	margin: 2rem 0 2rem;
+	font-size: 2rem;
+}
+#input {
+	width: 60%;
+	border: 1px solid #a3a3a3;
+	margin: 2rem auto;
+	padding: 1rem 2rem;
+	background-color: #b7e0ff;
+}
+#group, #location, #distance, label, button {
+	font-size: 1.1rem;
+}
