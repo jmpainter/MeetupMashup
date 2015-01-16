@@ -8,7 +8,7 @@ h1 {
 	font-size: 2rem;
 }
 #input {
-	width: 60%;
+	width: 80%;
 	border: 1px solid #a3a3a3;
 	margin: 2rem auto;
 	padding: 1rem 2rem;
@@ -16,6 +16,9 @@ h1 {
 }
 #group, #location, #distance, label, button {
 	font-size: 1.1rem;
+}
+#location {
+	width: 20rem;
 }
 #distance {
 	-webkit-appearance: menulist-button;

@@ -41,13 +41,6 @@ function getMeetups (group, distance, location) {
 //Autocompletion of place input
 
 var autocomplete;
-
-var componentForm = {
-	locality: 'long_name',
-	country: 'long_name',
-	postal_code: 'short_name',
-	administrative_area_level_1: 'some_name'
-};
 var city = '';
 var state = '';
 var zip = '';
@@ -56,23 +49,21 @@ function initialize() {
   // Create the autocomplete object, restricting the search
   // to geographical location types.
   autocomplete = new google.maps.places.Autocomplete(
-		/** @type {HTMLInputElement} */(document.getElementById('autocomplete')),
+		/** @type {HTMLInputElement} */(document.getElementById('location')),
 		{ types: ['geocode'] });
   // When the user selects an address from the dropdown,
   // populate the address fields in the form.
   google.maps.event.addListener(autocomplete, 'place_changed', function() {
-		fillInAddress();
+		getAddress();
   });
 }
 
 // [START region_fillform]
-function fillInAddress() {
+function getAddress() {
 	 // Get the place details from the autocomplete object.
 	var place = autocomplete.getPlace();
 	// Get each component of the address from the place details
-	// and fill the corresponding field on the form.
 	for (var i = 0; i < place.address_components.length; i++) {
-
 		var t = place.address_components[i].types;
 		if(compIsType(t, 'administrative_area_level_1'))
 			state = place.address_components[i].long_name; //store the state
