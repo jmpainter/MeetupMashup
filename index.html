@@ -4,6 +4,7 @@
 	<link rel="stylesheet" href="css/reset.css">
 	<link rel="stylesheet" href="css/style.css">
 	<script src="http://code.jquery.com/jquery.min.js"></script>
+	<script src="https://maps.googleapis.com/maps/api/js?v=3.exp&libraries=places"></script>
 	<link href='http://fonts.googleapis.com/css?family=Roboto' rel='stylesheet' type='text/css'>	
 	<script src="js/app.js"></script>
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">		
@@ -13,9 +14,9 @@
 <body>
 	<div id="input">
 		<h1>Find a Meetup Group</h1></header>
-		<form>
+		<form id="search-form" onsubmit="return false;">
 			<label for="group">Search for Group: </label>
-			<input id="group" type="text">
+			<input id="group" type="text" value="dogs">
 			<select id="distance">
 				<option value="2">2 miles</option>
 				<option value="5">5 miles</option>
@@ -26,7 +27,7 @@
 				<option value="any">any distance</option>
 			</select>
 			of
-			<input id="location" type="text">
+			<input id="autocomplete" type="text" value="Mill Valley">
 			<button id="submit" type="submit">Search</button>
 		</form>
 	</div>
