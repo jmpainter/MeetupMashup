@@ -4,6 +4,7 @@ var zip = '';
 var country = '';
 var lat = '';
 var lng = '';
+var map = null;
 
 $(document).ready( function() {
 	initialize();
@@ -30,34 +31,40 @@ function getMeetups (group, distance) {
 		type: "GET",
 		})
 	.done(function(result){
-		console.log(result);
-		console.log(result.results);
-		listMeetups(result.results);
-		/*
-		var searchResults = showSearchResults(request.tagged, result.items.length);
-
-		$('.search-results').html(searchResults);
-
-		$.each(result.items, function(i, item) {
-			var question = showQuestion(item);
-			$('.results').append(question);
-		});
-	*/
+		showMeetups(result.results);
 	})
 	.fail(function(jqXHR, error, errorThrown){
-		/*
 		var errorElem = showError(error);
 		$('.search-results').append(errorElem);
-		*/
 	});
 }
 
-function listMeetups(groups) {
 
+function showMeetups(groups) {
+
+	//create new Google map with center as our location
+	var mapOptions = {
+		center: { lat: lat, lng: lng},
+		zoom: 8
+	};
+	map = new google.maps.Map(document.getElementById('map-canvas'), mapOptions);
+	$('#map-canvas').css('border', '1px solid #a3a3a3');
+
+	//this array will store the html to be appended to the results list
  	var items = [];
 
 	$.each(groups, function(i, item) {
 		items.push('<li><a href="' + item.link + '">' + item.name + '</a></li>');
+		console.log('name: ' + item.name + ' lat: ' + item.lat + ' lon: ' + item.lon);
+		var marker = new google.maps.Marker({
+			position: { lat: item.lat, lng: item.lon},
+			map: map,
+			title: item.name,
+			url: item.link
+		});
+		google.maps.event.addListener(marker, 'click', function() {
+			window.location.href = marker.url;
+		});		
 	});
 	$('#group-list').append( items.join('') );
 
@@ -99,4 +106,3 @@ function geolocate() {
 	 });
   }
 }
-// [END region_geolocation]

@@ -32,14 +32,16 @@ h1 {
 #results {
 	text-align: left;
 	margin: 2rem auto;
-	width: 80%;
+	width: 70%;
 	height: 25rem;
 }
 #group-list {
 	float: right;
 }
-#map {
+#map-canvas {
 	float: left;
+	width: 500px;
+	height: 400px;
 }
 #group-list {
 	font-size: 1.2rem;
