@@ -2,19 +2,22 @@ body {
 	text-align: center;
 	font-family: Roboto, sans-serif;
 	color: #1c1c1c;
+	padding: 1rem;
 }
 h1 {
 	margin: 2rem 0 1.7rem;
 	font-size: 2rem;
+	text-align: center;
 }
 #main {
 	width: 80%;
-	margin: 2rem auto;
+	margin: 0 auto;
 }
 #input {
 	border: 1px solid #a3a3a3;
 	padding: 1rem 2rem;
 	background-color: #cee1ff;
+	border-radius: 4px;
 }
 #group, #location, #distance, label, button {
 	font-size: 1.1rem;
@@ -52,6 +55,9 @@ h1 {
 	height: 25rem;
 	vertical-align: top;
 }
+#group-list li {
+	word-wrap: break-word;
+}
 #group-list li a {
 	text-decoration: none;
 	color: black;
@@ -63,9 +69,61 @@ h1 {
 
 /* Responsive Design */
 @media only screen and (max-width: 1100px) {
-
 	#map-canvas {
 		width: 23rem;
 		height: 19rem;
 	}		
+}
+@media only screen and (max-width: 1000px) {
+	#main{
+		width: 100%;
+	}
+	#group-list {
+		font-size: 1rem;
+		margin-left: 1.7rem;
+	}
+}
+
+@media only screen and (max-width: 600px) {
+	h1 {
+		margin: .6rem 0 1.2rem;
+		font-size: 1.6rem;
+	}	
+	#main{
+		width: 100%;
+	}
+	#group-list {
+		font-size: 1rem;
+		margin-left: 1.7rem;
+	}
+	body {
+		padding: .5rem;
+	}
+	#input {
+		text-align: left;
+	}
+	#group, #location, #distance, label, button {
+		font-size: 1rem;
+		margin-top: .3rem;
+	}
+	#map-canvas {
+		width: 100%;
+		float:left;
+	}
+	#group-list {
+		float: left;
+		margin-top: 1rem;
+		font-size: .9rem;
+	}
+	#search-form {
+		width: 60%;
+	}
+}
+@media only screen and (max-width: 375px) {
+	h1 {
+		font-size: 1.4rem;
+	}		
+	#search-form {
+		width: 90%;
+	}
 }
