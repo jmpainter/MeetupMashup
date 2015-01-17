@@ -8,7 +8,7 @@ h1 {
 	font-size: 2rem;
 }
 #input {
-	width: 65%;
+	width: 67%;
 	border: 1px solid #a3a3a3;
 	margin: 2rem auto;
 	padding: 1rem 2rem;
@@ -33,17 +33,29 @@ h1 {
 	text-align: left;
 	margin: 2rem auto;
 	width: 70%;
-	height: 25rem;
+	overflow: hidden;
+	white-space: nowrap;
 }
 #group-list {
-	float: right;
+	display: inline-block;
+	margin-left: 3rem;
 }
 #map-canvas {
-	float: left;
+	display: inline-block;
 	width: 500px;
 	height: 400px;
+	vertical-align: top;
 }
 #group-list {
+	font-size: 1.1rem;
+	line-height: 1.8rem;
+	margin-left: 3rem;
+}
+#group-list li a {
+	text-decoration: none;
+	color: black;
+}
+#error {
+	color: #d61d1d;
 	font-size: 1.2rem;
-	line-height: 1.7rem;
 }

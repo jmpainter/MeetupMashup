@@ -6,6 +6,11 @@ $(document).ready( function() {
 	initialize();
 	$('#search-form').submit( function(event){
 		$(this).find("input[name='tags']").val();
+		//empty the group list, map, and error msg from the last result, if any
+		$('#group-list').empty();
+		$('#map-canvas').empty();
+		$('#map-canvas').css('display', 'none');
+		$('#error').empty();
 		getMeetups($('#group').val(), $('#distance').val());
 	});
 });
@@ -24,16 +29,25 @@ function getMeetups (group, distance) {
 		type: "GET",
 		})
 	.done(function(result){
-		showMeetups(result.results);
+		if (typeof(result.results) != "undefined") {
+			showMeetups(result.results);
+		}
+		else {
+			console.log(result.details);
+			$('#error').text(result.details);
+		}
+		//console.log('Results: ' + result.results.length);
 	})
 	.fail(function(jqXHR, error, errorThrown){
 		var errorElem = showError(error);
-		$('.search-results').append(errorElem);
+		$('#error').text(errorElem);
 	});
 }
 
 
 function showMeetups(groups) {
+
+	$('#map-canvas').css('display', 'inline-block');
 
 	//create new Google map with center as our location
 	var mapOptions = {
@@ -43,7 +57,6 @@ function showMeetups(groups) {
 	map = new google.maps.Map(document.getElementById('map-canvas'), mapOptions);
 	$('#map-canvas').css('border', '1px solid #a3a3a3');
 
-	$('#group-list').empty();
 	//this array will store the html to be appended to the results list
 	var items = [];
 
