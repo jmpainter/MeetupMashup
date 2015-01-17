@@ -5,19 +5,23 @@ var map = null;
 $(document).ready( function() {
 	initialize();
 	$('#search-form').submit( function(event){
-		$(this).find("input[name='tags']").val();
-		//empty the group list, map, and error msg from the last result, if any
-		$('#group-list').empty();
-		$('#map-canvas').empty();
-		$('#map-canvas').css('display', 'none');
-		$('#error').empty();
-		getMeetups($('#group').val(), $('#distance').val());
+		clearScreen();
+		//use just the first word of the topic, only one topic is allowed
+		getMeetups($('#group').val().split(' ')[0], $('#distance').val());
 	});
 });
 
+//empty the group list, map, and error msg from the last result, if any
+function clearScreen() {
+	$('#group-list').empty();
+	$('#map-canvas').empty();
+	$('#map-canvas').css('display', 'none');
+	$('#error').empty();
+}
+
 function getMeetups (group, distance) {
 
-	// the parameters we need to pass in our request to StackOverflow's API
+	// the parameters we need to pass in our request to Meetups's API
 	var request = {key: '24a3d6c32673b27346e265224741b1b',
 								topic: group,
 								lat: lat,
@@ -29,8 +33,9 @@ function getMeetups (group, distance) {
 		type: "GET",
 		})
 	.done(function(result){
+		console.log(result);
 		//if there is a results array in the object, show results. Otherwise display the error
-		if (typeof(result.results) != "undefined") {
+		if (typeof(result.results) != "undefined" && result.results.length != 0) {
 			showMeetups(result.results);
 		}
 		else {
@@ -45,7 +50,7 @@ function getMeetups (group, distance) {
 
 
 function showMeetups(groups) {
-
+	//show the map
 	$('#map-canvas').css('display', 'inline-block');
 
 	//create new Google map with center as our location
@@ -61,6 +66,7 @@ function showMeetups(groups) {
 
 	$.each(groups, function(i, item) {
 		items.push('<li><a href="' + item.link + '" target="_blank">' + item.name + '</a></li>');
+		//add markers to the google map
 		var marker = new google.maps.Marker({
 			position: { lat: item.lat, lng: item.lon},
 			map: map,
@@ -76,7 +82,6 @@ function showMeetups(groups) {
 }
 
 //Autocompletion of place input
-
 var autocomplete;
 
 function initialize() {
