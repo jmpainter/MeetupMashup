@@ -29,14 +29,13 @@ function getMeetups (group, distance) {
 		type: "GET",
 		})
 	.done(function(result){
+		//if there is a results array in the object, show results. Otherwise display the error
 		if (typeof(result.results) != "undefined") {
 			showMeetups(result.results);
 		}
 		else {
-			console.log(result.details);
-			$('#error').text(result.details);
+			$('#error').text('Your search did not return any results.');
 		}
-		//console.log('Results: ' + result.results.length);
 	})
 	.fail(function(jqXHR, error, errorThrown){
 		var errorElem = showError(error);
