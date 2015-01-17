@@ -12,30 +12,32 @@
 	<title>Meetup Locations</title>	
 </head>
 <body>
-	<div id="input">
-		<h1>Find a Meetup Group</h1></header>
-		<form id="search-form" onsubmit="return false;">
-			<label for="group">Search for Group: </label>
-			<input id="group" type="text">
-			<select id="distance">
-				<option value="2">2 miles</option>
-				<option value="5">5 miles</option>
-				<option value="10" selected>10 miles</option>
-				<option value="25">25 miles</option>
-				<option value="50">50 miles</option>
-				<option value="100">100 miles</option>
-				<option value="any">any distance</option>
-			</select>
-			of
-			<input id="location" type="text">
-			<button id="submit" type="submit">Search</button>
-		</form>
-	</div>
-	<div id="error"></div>
-	<div id="results">
-		<div id="map-canvas"></div>
-		<ul id="group-list">
-		</ul>
+	<div id="main">
+		<div id="input">
+			<h1>Find a Meetup Group</h1></header>
+			<form id="search-form" onsubmit="return false;">
+				<label for="group">Category: </label>
+				<input id="group" type="text">
+				<select id="distance">
+					<option value="2">2 miles</option>
+					<option value="5">5 miles</option>
+					<option value="10" selected>10 miles</option>
+					<option value="25">25 miles</option>
+					<option value="50">50 miles</option>
+					<option value="100">100 miles</option>
+					<option value="any">any distance</option>
+				</select>
+				<label for="location">Of </label>
+				<input id="location" type="text">
+				<button id="submit" type="submit">Search</button>
+			</form>
+		</div>
+		<div id="error"></div>
+		<div id="results">
+			<div id="map-canvas"></div>
+			<ul id="group-list">
+			</ul>
+		</div>
 	</div>
 </body>
 </html>
