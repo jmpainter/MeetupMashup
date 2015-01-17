@@ -14,7 +14,7 @@ $(document).ready( function() {
 	$('#group').focus( function() {
 		if($(this).val() == 'Enter a category') {
 			$(this).val('');
-			$(this).css('color', 'black');
+			$(this).css('color', '#0a0a0a');
 		}
 	});
 });
