@@ -9,6 +9,14 @@ $(document).ready( function() {
 		//use just the first word of the topic, only one topic is allowed
 		getMeetups($('#group').val().split(' ')[0], $('#distance').val());
 	});
+
+	//remove category input watermark if present
+	$('#group').focus( function() {
+		if($(this).val() == 'Enter a category') {
+			$(this).val('');
+			$(this).css('color', 'black');
+		}
+	});
 });
 
 //empty the group list, map, and error msg from the last result, if any
@@ -111,5 +119,8 @@ function initialize() {
 		lat = place.geometry.location.lat();
 		lng = place.geometry.location.lng();
 		console.log('setting lat: ' + lat + ' lon: ' + lng);
+		//show just the part of the location before the comma in the text box
+		var shortLocation = $('#location').val().split(',')[0];
+		$('#location').val(shortLocation);
   });
 }

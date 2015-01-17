@@ -9,25 +9,35 @@ h1 {
 	font-size: 2.1rem;
 	text-align: center;
 	font-family: Roboto, sans-serif;
+	color: white;
 }
 #main {
 	width: 80%;
 	margin: 0 auto;
 }
 #input {
-	border: 1px solid #a3a3a3;
+	border: 1px solid #c9c9c9;
 	padding: 1rem 2rem;
-	background-color: #cee1ff;
+	background-color: #508DBD;
+	/*background-color: #cee1ff;*/
 }
-#group, #location, #distance, label, button {
+#group, #location, #distance, button {
 	font-size: 1.1rem;
 	margin-top: .6rem;
 }
-#group {
-	width: 10rem;
+#group, #location, #distance {
+	width: 11rem;
+	margin-right: .5rem;
 }
-#location {
-	width: 12rem;
+#group {
+	color: #a3a3a3;
+}
+button {
+	width: 6rem;
+	height: 2.1rem;
+}
+label {
+	color: black;
 }
 #distance {
 	-webkit-appearance: menulist-button;
@@ -36,7 +46,6 @@ h1 {
 	border: 1px solid rgb(204, 204, 204);
 	cursor: pointer;
 	height: 30px;
-	width: 9rem;	
 }
 #results {
 	text-align: left;
@@ -88,7 +97,7 @@ h1 {
 @media only screen and (max-width: 600px) {
 	h1 {
 		margin: .6rem 0 1.2rem;
-		font-size: 2.2rem;
+		font-size: 1.8rem;
 	}	
 	#main{
 		width: 100%;
@@ -103,7 +112,7 @@ h1 {
 	#input {
 		text-align: left;
 	}
-	#group, #location, #distance, label, button {
+	#group, #location, #distance, button {
 		font-size: 1rem;
 		margin-top: .3rem;
 	}
@@ -117,14 +126,15 @@ h1 {
 		font-size: .9rem;
 	}
 	#search-form {
-		width: 60%;
+		border: 1px solid red;
+		width: 200px;
 	}
 }
 @media only screen and (max-width: 375px) {
 	h1 {
-		font-size: 1.6rem;
+		font-size: 1.4rem;
 	}		
 	#search-form {
-		width: 90%;
+		width: 200px;
 	}
 }

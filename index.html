@@ -16,18 +16,16 @@
 		<div id="input">
 			<h1>Find a Meetup Group</h1></header>
 			<form id="search-form" onsubmit="return false;">
-				<label for="group">Category: </label>
-				<input id="group" type="text" maxlength="20">
+				<input id="group" type="text" maxlength="20" value="Enter a category">
 				<select id="distance">
-					<option value="2">2 miles</option>
-					<option value="5">5 miles</option>
-					<option value="10" selected>10 miles</option>
-					<option value="25">25 miles</option>
-					<option value="50">50 miles</option>
-					<option value="100">100 miles</option>
-					<option value="any">any distance</option>
+					<option value="2">within 2 miles of</option>
+					<option value="5">within 5 miles of</option>
+					<option value="10" selected>within 10 miles of</option>
+					<option value="25">within 25 miles of</option>
+					<option value="50">within 50 miles of</option>
+					<option value="100">within 100 miles of</option>
+					<option value="any">any distance of</option>
 				</select>
-				<label for="location">Of </label>
 				<input id="location" type="text">
 				<button id="submit" type="submit">Search</button>
 			</form>
