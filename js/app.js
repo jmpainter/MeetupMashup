@@ -60,7 +60,7 @@ function showMeetups(groups) {
 	var items = [];
 
 	$.each(groups, function(i, item) {
-		items.push('<li><a href="' + item.link + '">' + item.name + '</a></li>');
+		items.push('<li><a href="' + item.link + '" target="_blank">' + item.name + '</a></li>');
 		var marker = new google.maps.Marker({
 			position: { lat: item.lat, lng: item.lon},
 			map: map,
@@ -68,7 +68,7 @@ function showMeetups(groups) {
 			url: item.link
 		});
 		google.maps.event.addListener(marker, 'click', function() {
-			window.location.href = marker.url;
+			window.open(marker.url, '_blank');
 		});		
 	});
 	$('#group-list').append( items.join('') );
