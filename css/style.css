@@ -11,9 +11,10 @@ h1 {
 	font-family: Roboto, sans-serif;
 	color: white;
 }
-#main {
+main {
 	width: 80%;
 	margin: 0 auto;
+	border: 1px solid red;
 }
 #input {
 	border: 1px solid #c9c9c9;
@@ -25,8 +26,11 @@ h1 {
 	margin-top: .6rem;
 }
 #group, #location, #distance {
-	width: 11rem;
+	width: 175px;
 	margin-right: .5rem;
+}
+#distance {
+	width: 180px;
 }
 #group, #location {
 	height: 1.5rem;
@@ -45,6 +49,7 @@ button {
     cursor:pointer;
     -webkit-border-radius: 5px;
     border-radius: 5px;	
+   	color: #3f3f3f;
 }
 label {
 	color: black;
@@ -62,20 +67,22 @@ label {
 	margin: 2rem 0;
 	white-space: nowrap;
 }
+#map-canvas {
+	display: inline-block;
+	width: 50%;
+	height: 25rem;
+	vertical-align: top;
+}
 #group-list {
 	display: inline-block;
 	margin-left: 3rem;
 	font-size: 1.1rem;
 	line-height: 2.2rem;
-}
-#map-canvas {
-	display: inline-block;
-	width: 30rem;
-	height: 25rem;
-	vertical-align: top;
+	width: 42%;
+	border: 1px solid green;
 }
 #group-list li {
-	word-wrap: break-word;
+	width: 42%;
 }
 #group-list li a {
 	text-decoration: none;
@@ -95,7 +102,7 @@ label {
 	}		
 }
 @media only screen and (max-width: 1000px) {
-	#main{
+	main{
 		width: 100%;
 	}
 	#group-list {
@@ -109,7 +116,7 @@ label {
 		margin: .6rem 0 1.2rem;
 		font-size: 1.8rem;
 	}	
-	#main{
+	main{
 		width: 100%;
 	}
 	#group-list {
@@ -141,9 +148,10 @@ label {
 }
 @media only screen and (max-width: 375px) {
 	h1 {
-		font-size: 1.4rem;
+		font-size: 1.6rem;
 	}		
 	#search-form {
 		width: 200px;
+		margin: 0 auto;
 	}
 }

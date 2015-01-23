@@ -1,6 +1,9 @@
 var lat = 0;
 var lng = 0;
+var defaultLat = 51.5073509;
+var defaultLng = -0.12775829999998223;
 var map = null;
+var autocomplete;
 
 $(document).ready( function() {
 	initialize();
@@ -18,6 +21,46 @@ $(document).ready( function() {
 		}
 	});
 });
+
+function initialize() {
+	// Create the autocomplete object, restricting the search
+	// to geographical location types.
+	autocomplete = new google.maps.places.Autocomplete(
+		(document.getElementById('location')),
+		{ types: ['geocode'] });
+
+	// Bias the autocomplete object to the user's geographical location,
+	// as supplied by the browser's 'navigator.geolocation' object.
+	if (navigator.geolocation) {
+		navigator.geolocation.getCurrentPosition(function(position) {
+			var geolocation = new google.maps.LatLng(
+				 	position.coords.latitude, position.coords.longitude);
+			var circle = new google.maps.Circle({
+			  	center: geolocation,
+			  	radius: position.coords.accuracy
+			});
+			autocomplete.setBounds(circle.getBounds());
+		});
+	}
+  // When the user selects an address from the dropdown,
+  // set the global latitude and longitude
+  google.maps.event.addListener(autocomplete, 'place_changed', function() {
+		var place = autocomplete.getPlace();
+		lat = place.geometry.location.lat();
+		lng = place.geometry.location.lng();
+		console.log('setting lat: ' + lat + ' lon: ' + lng);
+  		console.log('lat: ' + lat + ' lon: ' + lng);		
+		//show just the part of the location before the comma in the text box
+		var shortLocation = $('#location').val().split(',')[0];
+		$('#location').val(shortLocation);
+  });
+  //if lat and lng are not set by location, set to default (London) and show the results
+  if(lat == 0 && lng == 0 ) {
+  	lat =  defaultLat;
+  	lng =  defaultLng;
+  }
+  getMeetups('dogs', 10);
+}
 
 //empty the group list, map, and error msg from the last result, if any
 function clearScreen() {
@@ -88,48 +131,4 @@ function showMeetups(groups) {
 	});
 	$('#group-list').append( items.join('') );
 
-}
-
-//Autocompletion of place input
-var autocomplete;
-
-function initialize() {
-  // Create the autocomplete object, restricting the search
-  // to geographical location types.
-  autocomplete = new google.maps.places.Autocomplete(
-		/** @type {HTMLInputElement} */(document.getElementById('location')),
-		{ types: ['geocode'] });
-
-	// Bias the autocomplete object to the user's geographical location,
-	// as supplied by the browser's 'navigator.geolocation' object.
-	if (navigator.geolocation) {
-		navigator.geolocation.getCurrentPosition(function(position) {
-			var geolocation = new google.maps.LatLng(
-				 	position.coords.latitude, position.coords.longitude);
-			var circle = new google.maps.Circle({
-			  	center: geolocation,
-			  	radius: position.coords.accuracy
-			});
-			autocomplete.setBounds(circle.getBounds());
-		});
-	}
-  // When the user selects an address from the dropdown,
-  // set the global latitude and longitude
-  google.maps.event.addListener(autocomplete, 'place_changed', function() {
-		var place = autocomplete.getPlace();
-		lat = place.geometry.location.lat();
-		lng = place.geometry.location.lng();
-		console.log('setting lat: ' + lat + ' lon: ' + lng);
-  		console.log('lat: ' + lat + ' lon: ' + lng);		
-		//show just the part of the location before the comma in the text box
-		var shortLocation = $('#location').val().split(',')[0];
-		$('#location').val(shortLocation);
-  });
-
-  //if lat and lng are not set by location, set to default (London) and show the results
-  if(lat == 0 && lng == 0 ) {
-  	lat =  51.5073509;
-  	lng =  -0.12775829999998223;
-  }
-  getMeetups('dogs', 10);
 }

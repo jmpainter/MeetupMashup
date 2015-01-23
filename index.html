@@ -3,17 +3,14 @@
 <head>
 	<link rel="stylesheet" href="css/reset.css">
 	<link rel="stylesheet" href="css/style.css">
-	<script src="http://code.jquery.com/jquery.min.js"></script>
-	<script src="https://maps.googleapis.com/maps/api/js?v=3.exp&libraries=places"></script>
 	<link href='http://fonts.googleapis.com/css?family=Roboto' rel='stylesheet' type='text/css'>	
-	<script src="js/app.js"></script>
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">		
 	<meta charset="UTF-8">
 	<title>Meetup Locations</title>	
 </head>
 <body>
-	<div id="main">
-		<div id="input">
+	<main>
+		<section id="input">
 			<h1>Find a Meetup Group</h1></header>
 			<form id="search-form" onsubmit="return false;">
 				<input id="group" type="text" maxlength="20" value="Enter a category">
@@ -29,13 +26,16 @@
 				<input id="location" type="text">
 				<button id="submit" type="submit">Search</button>
 			</form>
-		</div>
-		<div id="error"></div>
-		<div id="results">
+		</section>
+		<section id="error"></section>
+		<section id="results">
 			<div id="map-canvas"></div>
 			<ul id="group-list">
 			</ul>
-		</div>
-	</div>
+		</section>
+	</main>
+	<script src="http://code.jquery.com/jquery.min.js"></script>
+	<script src="https://maps.googleapis.com/maps/api/js?v=3.exp&libraries=places"></script>	
+	<script src="js/app.js"></script>
 </body>
 </html>
