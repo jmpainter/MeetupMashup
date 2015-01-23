@@ -1,5 +1,5 @@
-var lat = '';
-var lng = '';
+var lat = 0;
+var lng = 0;
 var map = null;
 
 $(document).ready( function() {
@@ -32,6 +32,7 @@ function getMeetups (group, distance) {
 	// the parameters we need to pass in our request to Meetups's API
 	var request = {key: '24a3d6c32673b27346e265224741b1b',
 								topic: group,
+								radius: distance,
 								lat: lat,
 								lon: lng};
 	var result = $.ajax({
@@ -119,8 +120,16 @@ function initialize() {
 		lat = place.geometry.location.lat();
 		lng = place.geometry.location.lng();
 		console.log('setting lat: ' + lat + ' lon: ' + lng);
+  		console.log('lat: ' + lat + ' lon: ' + lng);		
 		//show just the part of the location before the comma in the text box
 		var shortLocation = $('#location').val().split(',')[0];
 		$('#location').val(shortLocation);
   });
+
+  //if lat and lng are not set by location, set to default (London) and show the results
+  if(lat == 0 && lng == 0 ) {
+  	lat =  51.5073509;
+  	lng =  -0.12775829999998223;
+  }
+  getMeetups('dogs', 10);
 }

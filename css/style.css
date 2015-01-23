@@ -18,8 +18,7 @@ h1 {
 #input {
 	border: 1px solid #c9c9c9;
 	padding: 1rem 2rem;
-	background-color: #508DBD;
-	/*background-color: #cee1ff;*/
+	background-color: #4679BD;
 }
 #group, #location, #distance, button {
 	font-size: 1.1rem;
@@ -40,7 +39,12 @@ h1 {
 }
 button {
 	width: 6rem;
-	height: 2.3rem;
+	padding:5px 15px;
+	background:#ccc; 
+	border:0 none;
+    cursor:pointer;
+    -webkit-border-radius: 5px;
+    border-radius: 5px;	
 }
 label {
 	color: black;
