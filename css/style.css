@@ -14,7 +14,6 @@ h1 {
 main {
 	width: 80%;
 	margin: 0 auto;
-	border: 1px solid red;
 }
 #input {
 	border: 1px solid #c9c9c9;
@@ -65,28 +64,27 @@ label {
 #results {
 	text-align: left;
 	margin: 2rem 0;
-	white-space: nowrap;
 }
 #map-canvas {
-	display: inline-block;
 	width: 50%;
 	height: 25rem;
 	vertical-align: top;
+	float: left;
 }
 #group-list {
-	display: inline-block;
-	margin-left: 3rem;
+	margin-left: 15px;
 	font-size: 1.1rem;
-	line-height: 2.2rem;
-	width: 42%;
-	border: 1px solid green;
+	line-height: 1.4rem;
+	width: 45%;
+	vertical-align: top;
+	float: right;
 }
 #group-list li {
-	width: 42%;
+	margin-bottom: 1.2rem;
 }
 #group-list li a {
 	text-decoration: none;
-	color: black;
+	color: #0a0a0a;
 }
 #error {
 	color: #d61d1d;
@@ -95,12 +93,7 @@ label {
 }
 
 /* Responsive Design */
-@media only screen and (max-width: 1100px) {
-	#map-canvas {
-		width: 23rem;
-		height: 19rem;
-	}		
-}
+
 @media only screen and (max-width: 1000px) {
 	main{
 		width: 100%;
@@ -114,7 +107,7 @@ label {
 @media only screen and (max-width: 600px) {
 	h1 {
 		margin: .6rem 0 1.2rem;
-		font-size: 1.8rem;
+		font-size: 1.6rem;
 	}	
 	main{
 		width: 100%;
@@ -139,17 +132,10 @@ label {
 	}
 	#group-list {
 		float: left;
-		margin-top: 1rem;
-		font-size: .9rem;
+		margin: 1rem;
+		font-size: 1rem;
+		width: 100%;
 	}
-	#search-form {
-		width: 200px;
-	}
-}
-@media only screen and (max-width: 375px) {
-	h1 {
-		font-size: 1.6rem;
-	}		
 	#search-form {
 		width: 200px;
 		margin: 0 auto;
