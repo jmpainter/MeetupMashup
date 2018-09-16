@@ -1,41 +1,41 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-	<link rel="stylesheet" href="css/reset.css">
-	<link rel="stylesheet" href="css/style.css">
-	<link href='https://fonts.googleapis.com/css?family=Lato' rel='stylesheet' type='text/css'>	
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">		
-	<meta charset="UTF-8">
-	<title>Meetup Locations</title>	
+  <link rel="stylesheet" href="css/reset.css">
+  <link rel="stylesheet" href="css/style.css">
+  <link href='https://fonts.googleapis.com/css?family=Lato' rel='stylesheet' type='text/css'>	
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">		
+  <meta charset="UTF-8">
+  <title>Meetup Locations</title>	
 </head>
 <body>
-	<main>
-		<section id="input">
-			<h1>Find a Meetup Group</h1></header>
-			<form id="search-form" onsubmit="return false;">
-				<input id="group" type="text" maxlength="20" value="Enter a category">
-				<select id="distance">
-					<option value="2">within 2 miles of</option>
-					<option value="5">within 5 miles of</option>
-					<option value="10" selected>within 10 miles of</option>
-					<option value="25">within 25 miles of</option>
-					<option value="50">within 50 miles of</option>
-					<option value="100">within 100 miles of</option>
-					<option value="any">any distance of</option>
-				</select>
-				<input id="location" type="text">
-				<button id="submit" type="submit">Search</button>
-			</form>
-		</section>
-		<section id="error"></section>
-		<section id="results">
-			<div id="map-canvas"></div>
-			<ul id="group-list">
-			</ul>
-		</section>
-	</main>
-	<script src="https://code.jquery.com/jquery.min.js"></script>
-	<script src="https://maps.googleapis.com/maps/api/js?v=3.exp&libraries=places"></script>	
-	<script src="js/app.js"></script>
+  <main>
+    <section id="input">
+      <h1>Find a Meetup Group</h1></header>
+      <form id="search-form" onsubmit="return false;">
+        <input id="group" type="text" maxlength="20" value="Enter a category">
+        <select id="distance">
+          <option value="2">within 2 miles of</option>
+          <option value="5">within 5 miles of</option>
+          <option value="10" selected>within 10 miles of</option>
+          <option value="25">within 25 miles of</option>
+          <option value="50">within 50 miles of</option>
+          <option value="100">within 100 miles of</option>
+          <option value="any">any distance of</option>
+        </select>
+        <input id="location" type="text">
+        <button id="submit" type="submit">Search</button>
+      </form>
+    </section>
+    <section id="error"></section>
+    <section id="results">
+      <div id="map-canvas"></div>
+      <ul id="group-list">
+      </ul>
+    </section>
+  </main>
+  <script src="https://code.jquery.com/jquery.min.js"></script>
+  <script src="https://maps.googleapis.com/maps/api/js?v=3.exp&libraries=places"></script>	
+  <script src="js/app.js"></script>
 </body>
 </html>

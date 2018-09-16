@@ -1,136 +1,136 @@
 body {
-	text-align: center;
-	font-family: Lato, sans-serif;
-	color: #1c1c1c;
-	padding: 1rem;
+  text-align: center;
+  font-family: Lato, sans-serif;
+  color: #1c1c1c;
+  padding: 1rem;
 }
 h1 {
-	margin: 2rem 0 1.7rem;
-	font-size: 2.9rem;
-	text-align: center;
-	color: white;
+  margin: 2rem 0 1.7rem;
+  font-size: 2.9rem;
+  text-align: center;
+  color: white;
 }
 main {
-	width: 80%;
-	margin: 0 auto;
+  width: 80%;
+  margin: 0 auto;
 }
 #input {
-	border: 1px solid #c9c9c9;
-	padding: 1rem 2rem;
-	background-color: #4679BD;
+  border: 1px solid #c9c9c9;
+  padding: 1rem 2rem;
+  background-color: #4679BD;
 }
 #group, #location, #distance, button {
-	font-size: 1.1rem;
-	margin-top: .6rem;
+  font-size: 1.1rem;
+  margin-top: .6rem;
 }
 #group, #location, #distance {
-	width: 175px;
-	margin-right: .5rem;
+  width: 175px;
+  margin-right: .5rem;
 }
 #distance {
-	width: 180px;
+  width: 180px;
 }
 #group, #location {
-	height: 1.5rem;
+  height: 1.5rem;
 }
 #group {
-	color: #a3a3a3;
+  color: #a3a3a3;
 }
 #distance, button {
-	color: #0a0a0a;
+  color: #0a0a0a;
 }
 button {
-	width: 6rem;
-	padding:5px 15px;
-	background:#ccc; 
-	border:0 none;
+  width: 6rem;
+  padding:5px 15px;
+  background:#ccc; 
+  border:0 none;
     cursor:pointer;
     -webkit-border-radius: 5px;
     border-radius: 5px;	
-   	color: #3f3f3f;
+     color: #3f3f3f;
 }
 label {
-	color: black;
+  color: black;
 }
 #distance {
-	-webkit-appearance: menulist-button;
-	appearance: menulist-button;
-	background-color: rgb(255, 255, 255);
-	border: 1px solid rgb(204, 204, 204);
-	cursor: pointer;
-	height: 30px;
+  -webkit-appearance: menulist-button;
+  appearance: menulist-button;
+  background-color: rgb(255, 255, 255);
+  border: 1px solid rgb(204, 204, 204);
+  cursor: pointer;
+  height: 30px;
 }
 #results {
-	text-align: left;
-	margin: 2rem 0;
+  text-align: left;
+  margin: 2rem 0;
 }
 #map-canvas {
-	vertical-align: top;
-	float: left;
+  vertical-align: top;
+  float: left;
 }
 #group-list {
-	margin-left: 15px;
-	font-size: 1.1rem;
-	line-height: 1.4rem;
-	width: 30%;
-	vertical-align: top;
-	float: right;
+  margin-left: 15px;
+  font-size: 1.1rem;
+  line-height: 1.4rem;
+  width: 30%;
+  vertical-align: top;
+  float: right;
 }
 #group-list li {
-	margin-bottom: 1.2rem;
+  margin-bottom: 1.2rem;
 }
 #group-list li a {
-	text-decoration: none;
-	color: #0a0a0a;
+  text-decoration: none;
+  color: #0a0a0a;
 }
 #error {
-	color: #d61d1d;
-	font-size: 1.2rem;
-	margin: 2rem 0;
+  color: #d61d1d;
+  font-size: 1.2rem;
+  margin: 2rem 0;
 }
 
 /* Responsive Design */
 
 @media only screen and (max-width: 1000px) {
-	main{
-		width: 100%;
-	}
-	#group-list {
-		font-size: 1rem;
-		margin-left: 1.7rem;
-	}
+  main{
+    width: 100%;
+  }
+  #group-list {
+    font-size: 1rem;
+    margin-left: 1.7rem;
+  }
 }
 
 @media only screen and (max-width: 600px) {
-	h1 {
-		margin: .6rem 0 1.2rem;
-		font-size: 1.6rem;
-	}	
-	main{
-		width: 100%;
-	}
-	#group-list {
-		font-size: 1rem;
-		margin-left: 1.7rem;
-	}
-	body {
-		padding: .5rem;
-	}
-	#input {
-		text-align: left;
-	}
-	#group, #location, #distance, button {
-		font-size: 1rem;
-		margin-top: .3rem;
-	}
-	#group-list {
-		float: left;
-		margin: 1rem;
-		font-size: 1rem;
-		width: 100%;
-	}
-	#search-form {
-		width: 200px;
-		margin: 0 auto;
-	}
+  h1 {
+    margin: .6rem 0 1.2rem;
+    font-size: 1.6rem;
+  }	
+  main{
+    width: 100%;
+  }
+  #group-list {
+    font-size: 1rem;
+    margin-left: 1.7rem;
+  }
+  body {
+    padding: .5rem;
+  }
+  #input {
+    text-align: left;
+  }
+  #group, #location, #distance, button {
+    font-size: 1rem;
+    margin-top: .3rem;
+  }
+  #group-list {
+    float: left;
+    margin: 1rem;
+    font-size: 1rem;
+    width: 100%;
+  }
+  #search-form {
+    width: 200px;
+    margin: 0 auto;
+  }
 }
