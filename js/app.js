@@ -19,7 +19,10 @@ $(document).ready( function() {
 			$(this).val('');
 			$(this).css('color', '#0a0a0a');
 		}
-	});
+  });
+  $(window).resize(function() {
+    setCanvasSize();
+  }); 
 });
 
 function initialize() {
@@ -62,6 +65,17 @@ function initialize() {
   getMeetups('dogs', 10);
 }
 
+function setCanvasSize() {
+  var mapCanvas = $('#map-canvas');
+  mapCanvas.css('display', 'inline-block');
+  if ($(window).width() > 700) {
+    mapCanvas.css('width', '65%');
+  } else {
+    mapCanvas.css('width', '100%');
+  }
+  mapCanvas.height($('#map-canvas').width() / 1.5);  
+}
+
 //empty the group list, map, and error msg from the last result, if any
 function clearScreen() {
 	$('#group-list').empty();
@@ -73,11 +87,13 @@ function clearScreen() {
 function getMeetups (group, distance) {
 
 	// the parameters we need to pass in our request to Meetups's API
-	var request = {key: '24a3d6c32673b27346e265224741b1b',
-								topic: group,
-								radius: distance,
-								lat: lat,
-								lon: lng};
+	var request = {
+    key: '24a3d6c32673b27346e265224741b1b',
+    topic: group,
+    radius: distance,
+    lat: lat,
+    lon: lng 
+  };
 	var result = $.ajax({
 		url: "https://api.meetup.com/2/groups",
 		data: request,
@@ -95,19 +111,21 @@ function getMeetups (group, distance) {
 		}
 	})
 	.fail(function(jqXHR, error, errorThrown){
-		var errorElem = showError(error);
+    console.error(error.message);
 		$('#error').text(errorElem);
 	});
 }
 
-
 function showMeetups(groups) {
 	//show the map
-	$('#map-canvas').css('display', 'inline-block');
+  setCanvasSize();
 
 	//create new Google map with center as our location
 	var mapOptions = {
-		center: { lat: lat, lng: lng},
+		center: {
+      lat: lat,
+      lng: lng
+    },
 		zoom: 8
 	};
 	map = new google.maps.Map(document.getElementById('map-canvas'), mapOptions);
