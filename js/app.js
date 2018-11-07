@@ -26,7 +26,6 @@ $(document).ready( function() {
 });
 
 function initialize() {
-  debugger;
   // Create the autocomplete object, restricting the search
   // to geographical location types.
   var autocomplete = new google.maps.places.Autocomplete(
